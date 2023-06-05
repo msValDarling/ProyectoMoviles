@@ -1,3 +1,4 @@
+import 'package:cakecraft/screens/CakeCraftHome.dart';
 import 'package:cakecraft/screens/PhotoUploadScreen.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       appBar: AppBar(
         title: const Center(child: Text('CakeCraft!!!')),
       ),
-      body: PhotoUploadScreen(),
+      body: CakeCraftHome(),
       drawer: Drawer(
         child: ListView(
           children: [

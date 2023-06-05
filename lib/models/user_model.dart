@@ -15,4 +15,10 @@ class UserModel {
         UserModel(name: name, email: email, photoURL: photoURL);
     return userModel;
   }
+  factory UserModel.fromJson(Map<String, dynamic> mapUser) {
+    return UserModel(
+        name: mapUser['name'],
+        email: mapUser['email'],
+        photoURL: mapUser['photoURL']);
+  }
 }

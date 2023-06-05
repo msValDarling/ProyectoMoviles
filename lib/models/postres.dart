@@ -1,28 +1,39 @@
-class Postres {
-  final String? postre;
-  final String? description;
-  final String? date;
-  final String? time;
-  final String? imageUrl;
+class Postre {
+  String id;
+  final String description;
+  final String date;
+  final String time;
+  final String imageUrl;
 
-  Postres({this.postre, this.description, this.date, this.time, this.imageUrl});
-  factory Postres.fromMap(Map<String, dynamic> map) {
-    return Postres(
-      postre: map['postre'],
-      description: map['description'],
-      date: map['date'],
-      time: map['time'],
-      imageUrl: map['imageUrl'],
+  Postre(
+      {this.id = '',
+      required this.description,
+      required this.date,
+      required this.time,
+      required this.imageUrl});
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'description': description,
+        'date': date,
+        'time': time,
+        'imageUrl': imageUrl
+      };
+
+  static Postre fromJson(Map<String, dynamic> json) => Postre(
+      id: json['id'],
+      description: json['description'],
+      date: json['date'],
+      time: json['time'],
+      imageUrl: json['imageUrl']);
+
+  factory Postre.fromMap(Map<String, dynamic> map) {
+    return Postre(
+      id: map['fields']['id']['stringValue'],
+      description: map['fields']['description']['stringValue'],
+      date: map['fields']['date']['stringValue'],
+      time: map['fields']['time']['stringValue'],
+      imageUrl: map['fields']['imageUrl']['stringValue'],
     );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'postre': postre,
-      'description': description,
-      'date': date,
-      'time': time,
-      'imageUrl': imageUrl,
-    };
   }
 }
